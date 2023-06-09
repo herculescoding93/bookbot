@@ -1,5 +1,5 @@
 #Test program for my test repository
-
+import datetime
 def countWords(string):
     return len(string.split())
 
@@ -23,6 +23,9 @@ def chars_dict_to_sorted_list(num_chars_dict):
 def sort_on(d):
     return d["num"]
 
+def time():
+    return datetime.datetime.now()
+
 with open("books/frankenstein.txt", "r") as book:
     contents = book.read()
     totalWords = countWords(contents)
@@ -36,7 +39,10 @@ with open("report.txt", "w+") as f:
         if not i["char"].isalpha():
             continue
         f.write(f"The character '{i['char']}' was found {i['num']} times\n")
-    f.write("--- End report ---")
+    f.write(f"--- End report ---\n Ended on {time()}")
+
+
+
 
 
 
